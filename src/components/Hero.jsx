@@ -2,21 +2,20 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
-// Example images (replace with your actual image paths)
 const galleryImages = [
-  "/ankara1.jpg",
-  "/asoebi1.jpg",
-  "/jumpsuit1.jpg",
-  "/wedding1.jpg",
-  "/ankara2.jpg",
-  "/asoebi2.jpg",
+  "/Sandri.jpg",
+  "/Sandri 2.jpg",
+  "/MF7 3.jpg",
+  "/MF7 4.jpg",
+  "/MF7 5.jpg",
+  "/MF7 6.jpg",
 ];
 
 const Hero = () => {
   const navigate = useNavigate();
 
   const handleExplore = () => {
-    navigate("/services"); // Navigate to Services or any page
+    navigate("/services");
   };
 
   return (
@@ -58,41 +57,38 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Gallery Section with full background image */}
-      <div
-  className="w-full max-w-7xl mx-auto px-4 py-12 bg-cover bg-center relative"
-  style={{
-    backgroundImage: "url('/San 4.jpg')",
-    backgroundBlendMode: "overlay", // blend overlay with image
-    backgroundColor: "rgba(0,0,0,0.4)", // dark fade over image
-    filter: "brightness(70%)", // fade the image
-  }}
->
-  <div className="relative z-10">
-    <h2 className="text-3xl font-bold text-center text-white mb-8">
-      Our Designs
-    </h2>
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-      {galleryImages.map((img, index) => (
-        <motion.div
-          key={index}
-          className="overflow-hidden rounded-lg shadow-lg"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: index * 0.2 }}
-        >
-          <img
-            src={img}
-            alt={`Design ${index + 1}`}
-            className="w-full h-64 object-cover"
-          />
-        </motion.div>
-      ))}
-    </div>
-  </div>
-</div>
+      {/* Gallery Section */}
+      <div className="w-full max-w-7xl mx-auto px-4 py-12 relative">
+        <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
+          Our Designs
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          {galleryImages.map((img, index) => (
+            <motion.div
+              key={index}
+              className="relative rounded-xl overflow-hidden shadow-lg bg-white group cursor-pointer border border-gray-200"
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.2 }}
+            >
+              {/* Image with fixed height for uniform layout */}
+              <img
+                src={img}
+                alt={`Motrust Design ${index + 1}`}
+                className="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-105"
+              />
 
+              {/* Overlay Text */}
+              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-500">
+                <p className="text-white text-lg font-semibold text-center">
+                  Exclusive Motrust Design
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 };

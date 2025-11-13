@@ -33,13 +33,11 @@ const Navbar = () => {
           <div className="flex-shrink-0">
             <Link to="/" className="flex items-center gap-2">
               <img
-                src="/Untitled design.png" // Replace with your logo image path
+                src="/Untitled_design-removebg-preview.png"
                 alt="Motrust Logo"
-                className="h-10 w-auto"
+                className="h-14 w-auto"
               />
-              <span className="text-2xl font-bold text-gray-800">
-                Motrust
-              </span>
+              <span className="text-2xl font-bold text-gray-800">Motrust</span>
             </Link>
           </div>
 
@@ -90,6 +88,22 @@ const Navbar = () => {
                 </Link>
               )
             )}
+
+            {/* Auth Buttons */}
+            <div className="flex items-center space-x-4">
+              <Link
+                to="/login"
+                className="px-4 py-2 text-gray-700 border rounded hover:bg-gray-100"
+              >
+                Login
+              </Link>
+              <Link
+                to="/signup"
+                className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+              >
+                Sign Up
+              </Link>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -139,6 +153,24 @@ const Navbar = () => {
               </Link>
             )
           )}
+
+          {/* Mobile Auth Buttons */}
+          <div className="mt-3 space-y-2 border-t pt-3">
+            <Link
+              to="/login"
+              onClick={() => setIsOpen(false)}
+              className="block w-full text-center px-3 py-2 border rounded text-gray-700 hover:bg-gray-100"
+            >
+              Login
+            </Link>
+            <Link
+              to="/signup"
+              onClick={() => setIsOpen(false)}
+              className="block w-full text-center px-3 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+            >
+              Sign Up
+            </Link>
+          </div>
         </div>
       )}
     </nav>

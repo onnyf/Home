@@ -8,6 +8,8 @@ import Ankara from "./pages/Ankara";
 import AsoEbiBridals from "./pages/AsoEbiBridals";
 import Jumpsuit from "./pages/Jumpsuit";
 import WeddingDress from "./pages/WeddingDress";
+import Login from "./authentications/Login"; // ✅ Added import
+import Signup from "./authentications/Signup"; // ✅ Added import
 
 const App = () => {
   return (
@@ -21,6 +23,8 @@ const App = () => {
         <Route path="/jumpsuit" element={<Jumpsuit />} />
         <Route path="/wedding-dress" element={<WeddingDress />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/login" element={<Login />} /> {/* ✅ Working now */}
+        <Route path="/signup" element={<Signup />} /> {/* ✅ Working now */}
       </Routes>
     </Router>
   );
