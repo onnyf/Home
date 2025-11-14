@@ -20,19 +20,21 @@ const Hero = () => {
 
   return (
     <div className="flex flex-col">
-      {/* Hero Section */}
-      <div
+      {/* ===== HERO SECTION ===== */}
+      <section
         className="h-screen bg-cover bg-center relative flex flex-col justify-center items-center"
-        style={{ backgroundImage: "url('/San 1.jpg')" }}
+        style={{ backgroundImage: "url('/San%201.jpg')" }} // safer for spaced filenames
       >
-        <div className="absolute inset-0 bg-black opacity-40"></div>
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/50"></div>
 
+        {/* Hero Content */}
         <div className="relative z-10 text-center px-4">
           <motion.h1
-            initial={{ y: -50, opacity: 0 }}
+            initial={{ y: -40, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl font-bold text-white mb-4"
+            className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-4"
           >
             Welcome to Motrust Fashion
           </motion.h1>
@@ -41,54 +43,54 @@ const Hero = () => {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-xl text-white mb-6"
+            className="text-lg sm:text-xl text-gray-100 mb-6 max-w-xl mx-auto"
           >
-            Discover the latest styles and designs.
+            Discover timeless styles, elegant designs, and the latest fashion inspirations.
           </motion.p>
 
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={handleExplore}
-            className="bg-pink-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-pink-500 transition"
+            className="bg-yellow-600 hover:bg-yellow-500 text-white px-8 py-3 rounded-full font-semibold shadow-lg transition duration-300"
           >
             Explore Collections
           </motion.button>
         </div>
-      </div>
+      </section>
 
-      {/* Gallery Section */}
-      <div className="w-full max-w-7xl mx-auto px-4 py-12 relative">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">
+      {/* ===== GALLERY SECTION ===== */}
+      <section className="w-full max-w-7xl mx-auto px-4 py-16">
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-10">
           Our Designs
         </h2>
+
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {galleryImages.map((img, index) => (
             <motion.div
               key={index}
-              className="relative rounded-xl overflow-hidden shadow-lg bg-white group cursor-pointer border border-gray-200"
-              initial={{ opacity: 0, y: 50 }}
+              className="relative rounded-xl overflow-hidden shadow-lg bg-white border border-gray-200 group cursor-pointer"
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
             >
-              {/* Image with fixed height for uniform layout */}
               <img
                 src={img}
                 alt={`Motrust Design ${index + 1}`}
-                className="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-105"
+                className="w-full h-80 sm:h-96 object-cover transition-transform duration-500 group-hover:scale-105"
               />
 
-              {/* Overlay Text */}
-              <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition duration-500">
-                <p className="text-white text-lg font-semibold text-center">
+              {/* Hover Overlay */}
+              <div className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 group-hover:opacity-100 transition duration-500">
+                <p className="text-white text-lg font-semibold text-center px-4">
                   Exclusive Motrust Design
                 </p>
               </div>
             </motion.div>
           ))}
         </div>
-      </div>
+      </section>
     </div>
   );
 };

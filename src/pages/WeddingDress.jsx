@@ -13,7 +13,7 @@ const dresses = [
   {
     id: 2,
     name: "Royal Satin Dress",
-    image: "/MF7 6.jpg",
+    image: "/MO 8.jpg",
     price: "$520",
     description:
       "A luxurious satin wedding dress featuring an off-shoulder neckline and elegant train for a royal feel.",
@@ -21,7 +21,7 @@ const dresses = [
   {
     id: 3,
     name: "Boho Chic Dress",
-    image: "/wedding3.jpg",
+    image: "/MF7 6.jpg",
     price: "$390",
     description:
       "Lightweight and free-spirited bohemian-style dress with floral lace and open back design.",
@@ -29,7 +29,7 @@ const dresses = [
   {
     id: 4,
     name: "Mermaid Silhouette",
-    image: "/wedding4.jpg",
+    image: "/MF7 7.jpg",
     price: "$480",
     description:
       "Form-fitting mermaid gown that highlights the bride’s figure with sparkling details and soft tulle.",
@@ -37,7 +37,15 @@ const dresses = [
   {
     id: 5,
     name: "Princess Ball Gown",
-    image: "/wedding5.jpg",
+    image: "/MF7 1.jpg",
+    price: "$600",
+    description:
+      "An extravagant ball gown with layered tulle skirt and crystal-embellished bodice — made for a fairytale wedding.",
+  },
+   {
+    id: 5,
+    name: "Princess Ball Gown",
+    image: "/MF7 2.jpg",
     price: "$600",
     description:
       "An extravagant ball gown with layered tulle skirt and crystal-embellished bodice — made for a fairytale wedding.",
