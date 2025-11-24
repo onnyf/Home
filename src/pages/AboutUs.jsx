@@ -18,7 +18,7 @@ const AboutUs = () => {
           transition={{ duration: 0.8 }}
           className="text-4xl sm:text-5xl font-bold mb-6"
         >
-          About Motrust Fashion
+          About Motrust Fashion7
         </motion.h1>
 
         <motion.p

@@ -6,16 +6,28 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white py-8">
       <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center md:items-start text-center md:text-left space-y-6 md:space-y-0">
-        
+        {/* Brand Info */}
         {/* Brand Info */}
         <div>
-          <h2 className="text-2xl font-bold">Motrust Fashion</h2>
-          <p className="text-gray-400 mt-2">77, Akanro Street, Ilasa, Mushin Lagos</p>
-          <p className="text-gray-400 mt-1">
-            Email: <a href="mailto:motrustf7@gmail.com" className="hover:underline">motrustf7@gmail.com</a>
+          <h2 className="text-2xl font-bold">
+            <Link to="/" className="hover:underline">
+              Motrust Fashion7
+            </Link>
+          </h2>
+          <p className="text-gray-400 mt-2">
+            77, Akanro Street, Ilasa, Mushin Lagos
           </p>
           <p className="text-gray-400 mt-1">
-            Phone: <a href="tel:+2348053108889" className="hover:underline">+234 805 310 8889</a>
+            Email:{" "}
+            <a href="mailto:motrustf7@gmail.com" className="hover:underline">
+              motrustf7@gmail.com
+            </a>
+          </p>
+          <p className="text-gray-400 mt-1">
+            Phone:{" "}
+            <a href="tel:+2348053108889" className="hover:underline">
+              +234 805 310 8889
+            </a>
           </p>
         </div>
 
@@ -23,9 +35,15 @@ const Footer = () => {
         <div className="text-center md:text-left">
           <h3 className="text-lg font-semibold mb-2">Quick Links</h3>
           <div className="flex flex-col space-y-2 text-gray-400">
-            <Link to="/about" className="hover:text-white transition">About Us</Link>
-            <Link to="/contact" className="hover:text-white transition">Contact</Link>
-            <Link to="/services" className="hover:text-white transition">Services</Link>
+            <Link to="/about" className="hover:text-white transition">
+              About Us
+            </Link>
+            <Link to="/contact" className="hover:text-white transition">
+              Contact
+            </Link>
+            <Link to="/services" className="hover:text-white transition">
+              Services
+            </Link>
           </div>
         </div>
 

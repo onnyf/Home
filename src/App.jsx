@@ -1,9 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-// Components
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+// Layout Wrapper
+import Layout from "./components/Layout";
 
 // Pages
 import Hero from "./components/Hero";
@@ -14,13 +13,17 @@ import Ankara from "./pages/Ankara";
 import AsoEbiBridals from "./pages/AsoEbiBridals";
 import Jumpsuit from "./pages/Jumpsuit";
 import WeddingDress from "./pages/WeddingDress";
+import Profile from "./pages/Profile";
+import Logout from "./pages/Logout";
+
+// NEW Bridal Train page
+import BridalTrain from "./pages/BridalTrain";
 
 // Auth Pages
 import Login from "./authentications/Login";
 import Signup from "./authentications/Signup";
 
 const App = () => {
-  // Sample products for search
   const products = [
     { id: 1, name: "Ankara Dress" },
     { id: 2, name: "Wedding Gown" },
@@ -30,28 +33,29 @@ const App = () => {
 
   return (
     <Router>
-      <div className="flex flex-col min-h-screen">
-        <Navbar products={products} />
+      {/* Layout wraps the whole site */}
+      <Layout products={products}>
+        <Routes>
+          <Route path="/" element={<Hero />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/about" element={<AboutUs />} />
+          <Route path="/ankara" element={<Ankara />} />
+          <Route path="/aso-ebi-bridals" element={<AsoEbiBridals />} />
+          <Route path="/jumpsuit" element={<Jumpsuit />} />
+          <Route path="/wedding-dress" element={<WeddingDress />} />
+          <Route path="/profile" element={<Profile />} />
+<Route path="/logout" element={<Logout />} />
 
-        <main className="flex-grow mt-16">
-          <Routes>
-            <Route path="/" element={<Hero />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/about" element={<AboutUs />} />
-            <Route path="/ankara" element={<Ankara />} />
-            <Route path="/aso-ebi-bridals" element={<AsoEbiBridals />} />
-            <Route path="/jumpsuit" element={<Jumpsuit />} />
-            <Route path="/wedding-dress" element={<WeddingDress />} />
-            <Route path="/contact" element={<Contact />} />
+          {/* NEW Bridal Train Page */}
+          <Route path="/wedding-dress/bridal-train" element={<BridalTrain />} />
 
-            {/* Auth Routes */}
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-          </Routes>
-        </main>
+          <Route path="/contact" element={<Contact />} />
 
-        <Footer />
-      </div>
+          {/* Auth */}
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
+      </Layout>
     </Router>
   );
 };

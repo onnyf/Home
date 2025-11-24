@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
+import ChatButton from "../components/ChatButton";
 
 const galleryImages = [
   "/Sandri.jpg",
@@ -19,11 +20,11 @@ const Hero = () => {
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col relative">
       {/* ===== HERO SECTION ===== */}
       <section
         className="h-screen bg-cover bg-center relative flex flex-col justify-center items-center"
-        style={{ backgroundImage: "url('/San%201.jpg')" }} // safer for spaced filenames
+        style={{ backgroundImage: "url('/San%201.jpg')" }}
       >
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/50"></div>
@@ -36,7 +37,7 @@ const Hero = () => {
             transition={{ duration: 0.8 }}
             className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-4"
           >
-            Welcome to Motrust Fashion
+            Welcome to Motrust Fashion7
           </motion.h1>
 
           <motion.p
@@ -91,6 +92,9 @@ const Hero = () => {
           ))}
         </div>
       </section>
+
+      {/* ===== CHAT BUTTON ===== */}
+      <ChatButton />
     </div>
   );
 };

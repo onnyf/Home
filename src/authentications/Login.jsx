@@ -1,11 +1,13 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [toast, setToast] = useState({ show: false, message: "" });
+
+  const navigate = useNavigate();
 
   const showToast = (message) => {
     setToast({ show: true, message });
@@ -16,20 +18,37 @@ const Login = () => {
   };
 
   const handleLogin = (e) => {
-    e.preventDefault();
-    setLoading(true);
+  e.preventDefault();
+  setLoading(true);
 
-    setTimeout(() => {
-      setLoading(false);
-      showToast(" Successful!");
-    }, 2000);
-  };
+  setTimeout(() => {
+    setLoading(false);
+
+    // Save login state
+    localStorage.setItem("isLoggedIn", "true");
+
+    // Save fake user data (you can replace with real backend)
+    localStorage.setItem(
+      "user",
+      JSON.stringify({
+        name: "Bolaji",
+        avatar: "/default-avatar.png", // use your image
+      })
+    );
+
+    showToast("Login Successful!");
+
+    // Redirect home
+    setTimeout(() => navigate("/"), 1000);
+  }, 1500);
+};
+
 
   return (
     <div className="relative min-h-screen flex items-center justify-center bg-gray-50 px-4">
       <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
 
-        {/* Success message inside login box */}
+        {/* Success message */}
         {toast.show && (
           <div className="mb-4 w-full text-center py-3 bg-green-100 border border-green-300 text-green-700 rounded-lg animate-fadeIn">
             {toast.message}
@@ -69,7 +88,6 @@ const Login = () => {
             />
           </div>
 
-          {/* Button with spinner */}
           <button
             type="submit"
             disabled={loading}
